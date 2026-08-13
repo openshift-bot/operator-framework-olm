@@ -9,8 +9,6 @@ objects:
     name: "${NAME}"
     namespace: "${NAMESPACE}"
   spec:
-    nodeSelector:
-      kubernetes.io/arch: "${ARCH}"
     output:
       to:
         kind: ImageStreamTag
@@ -27,4 +25,3 @@ parameters:
 - name: NAME
 - name: NAMESPACE
 - name: BASE_IMAGE
-- name: ARCH
