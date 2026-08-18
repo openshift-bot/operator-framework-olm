@@ -199,7 +199,7 @@ require (
 	go.opentelemetry.io/otel/trace v1.44.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.10.0 // indirect
 	go.podman.io/common v0.68.1 // indirect
-	go.podman.io/image/v5 v5.41.0 // indirect
+	go.podman.io/image/v5 v5.41.1 // indirect
 	go.podman.io/storage v1.64.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.28.0 // indirect
