@@ -1,18 +1,18 @@
-FROM registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.24-openshift-4.20 AS builder-rhel8
+FROM quay-proxy.ci.openshift.org/openshift/ci:ocp_builder_rhel-8-golang-1.24-openshift-4.20 AS builder-rhel8
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 WORKDIR /src
 COPY . .
 RUN make build/registry cross
 
-FROM registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.24-openshift-4.20 AS builder
+FROM quay-proxy.ci.openshift.org/openshift/ci:ocp_builder_rhel-9-golang-1.24-openshift-4.20 AS builder
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 WORKDIR /src
 COPY . .
 RUN make build/registry cross
 
-FROM registry.ci.openshift.org/ocp/4.20:base-rhel9
+FROM quay-proxy.ci.openshift.org/openshift/ci:ocp_4.20_base-rhel9
 ENTRYPOINT ["sh", "-c", "echo 'Running this image is not supported' && exit 1"]
 # clear any default CMD
 CMD []
