@@ -1,4 +1,4 @@
-FROM registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.24-openshift-4.20 AS builder
+FROM quay-proxy.ci.openshift.org/openshift/ci:ocp_builder_rhel-9-golang-1.24-openshift-4.20 AS builder
 
 ENV GO111MODULE auto
 ENV GOPATH /go
@@ -18,7 +18,7 @@ RUN mkdir -p .git/objects
 COPY . .
 RUN make build/olm bin/cpb
 
-FROM registry.ci.openshift.org/ocp/4.20:base-rhel9
+FROM quay-proxy.ci.openshift.org/openshift/ci:ocp_4.20_base-rhel9
 
 ADD manifests/ /manifests
 LABEL io.openshift.release.operator=true
